@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: airbnb
+    database: airbnb 
+    schema: RAW
+    tables:
+      - name: raw_hosts
+        columns:
+          - name: ID 
+            tests:
+              - unique
+              - not_null
+          - name: name
+          - name: is_superhost
+            tests:
+              - accepted_values:
+                  values: ['t','f']
+          - name: updated_at
+          - name: created_at
+
+      - name: raw_listings
+        columns:
+          - name: ID
+          - name: LISTING_URL
+          - name: NAME
+          - name: ROOM_TYPE 
+          - name: MINIMUM_NIGHTS
+          - name: HOST_ID
+            tests:
+            - relationships:
+                to: source('raw','raw_HOSTS')
+                field: id
+          - name: PRICE
+          - name: updated_at
+          - name: created_at
+
+      - name: raw_reviews
+        columns:
+          - name: listing_id
+            tests: 
+            - relationships:
+                to: source('raw','raw_listings')
+                field: id
+          - name: date
+          - name: reviewer_name
+          - name: comments
+          - name: sentiments
