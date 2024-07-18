@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_airbnb__listings
+    columns:
+      - name: ID
+      - name: LISTING_URL
+      - name: NAME
+      - name: ROOM_TYPE 
+      - name: MINIMUM_NIGHTS
+      - name: HOST_ID
+      - name: PRICE
+      - name: updated_at
+      - name: created_at
+  - name: stg_airbnb__rawhosts
+    columns:
+      - name: ID 
+      - name: name
+      - name: is_superhost
+      - name: updated_at
+      - name: created_at
+  - name: stg_airbnb__reviews
+    columns:
+      - name: listing_id
+      - name: date
+      - name: reviewer_name
+      - name: comments
+      - name: sentiments

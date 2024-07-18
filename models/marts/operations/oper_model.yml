@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_superhosts
+    columns:
+      - name: name
+      - name: id
+  - name: fct_property_active
+    columns:
+      - name: name
+      - name: ID
+      - name: active_days 
