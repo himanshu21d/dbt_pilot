@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: fct_revenue
+    columns:
+      - name: name
+      - name: revenue 
